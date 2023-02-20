@@ -1,0 +1,17 @@
+<div id="contenedor" class="form">
+  <form (ngSubmit)="submit(entrada.nombre,entrada.plataforma)" #entradaForm="ngForm">
+
+    <div class="form-group">
+      <label for="contrasegna">Plataforma:</label>
+      <input type="text" [(ngModel)]="entrada.plataforma"
+        name="plataforma" #plataforma="ngModel" required minlength="3">
+      <div *ngIf="plataforma.invalid && plataforma.dirty" class="alert">
+        <div *ngIf="plataforma.errors?.['required']">Campo requerido</div>
+        <div *ngIf="plataforma.errors?.['minlength']">Mínimo 4 caracteres</div>
+      </div>
+    </div>
+
+    <button type="submit" >Guardar cambios </button>
+  </form>
+</div>
+

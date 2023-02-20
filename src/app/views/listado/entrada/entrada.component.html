@@ -1,0 +1,7 @@
+<div id="entrada" (click)="lanzarPelicula()">
+  <h4>{{ entrada.nombre }}</h4>
+  <h4>{{ entrada.plataforma }}</h4>
+
+  <button type="button" routerLink="/eliminar/{{entrada.nombre}}" >Eliminar</button>
+  <button type="button" routerLink="/modificar/{{entrada.nombre}}" >Modificar</button>
+</div>

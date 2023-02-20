@@ -1,0 +1,11 @@
+<ul id="menu">
+  <li routerLink="/listado"><span>Películas</span></li>
+  <li routerLink="/nosotros"><span>Acerca de nosotros</span></li>
+  <li routerLink="/addfilm"><span>Añadir película</span></li>
+  <li *ngIf="miToken=='null' " class="acceso" routerLink="/login" ><span>Acceso</span></li>
+  <li *ngIf="miToken=='null' " class="acceso" routerLink="/registro" ><span>Registro</span></li>
+  <li *ngIf="miToken!='null' "  class="acceso"  class="acceso" ><span>Bienvenido : {{nombreUsuario}}</span>
+  <button *ngIf=" miToken!='null'"    type="submit" (click)="logout()" routerLink="/listado" >Cerrar Sesion</button>
+  </li>
+
+
