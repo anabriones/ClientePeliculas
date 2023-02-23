@@ -17,17 +17,21 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (sessionStorage.getItem('auth_token') != null) {
-      this.miToken = sessionStorage.getItem('auth_token');
-    }
 
-    if (sessionStorage.getItem('miTokenPersonalnombre') != null) {
-      this.nombreUsuario = sessionStorage.getItem('miTokenPersonalnombre');
-    }
 
     this.tokenService.token$.subscribe(
       (data: string) => {
-        this.miToken = data;
+
+        if (sessionStorage.getItem('auth_token') != null) {
+          this.miToken = sessionStorage.getItem('auth_token');
+        }
+
+        if (sessionStorage.getItem('miTokenPersonalnombre') != null) {
+          this.nombreUsuario = sessionStorage.getItem('miTokenPersonalnombre');
+        }
+
+       // this.miToken = data;
+        //this.nombreUsuario = sessionStorage.getItem('miTokenPersonalnombre');
       }
     )
     this.router.navigate(['/listado']);
@@ -36,6 +40,7 @@ export class MenuComponent implements OnInit {
   public logout(): void {
     sessionStorage.removeItem('auth_token');
     sessionStorage.removeItem('miTokenPersonalnombre');
+    sessionStorage.removeItem('nombreUsuario');
 
     this.miToken = 'null';
     sessionStorage.clear();

@@ -17,7 +17,40 @@
         <div *ngIf="plataforma.errors?.['required']">Campo requerido</div>
         <div *ngIf="plataforma.errors?.['minlength']">Mínimo 4 caracteres</div>
       </div>
+
+
+      <label for="duracion">Duración:</label>
+      <input
+        type="text"
+        [(ngModel)]="entrada.duracion"
+        name="duracion"
+        #duracion="ngModel"
+        required
+        minlength="3"
+      />
+      <div *ngIf="duracion.invalid && duracion.dirty" class="alert">
+        <div *ngIf="duracion.errors?.['required']">Campo requerido</div>
+        <div *ngIf="duracion.errors?.['minlength']">Mínimo 4 caracteres</div>
+      </div>
+
+      <label for="imagen">Imagen:</label>
+      <input
+        type="text"
+        [(ngModel)]="entrada.imagen"
+        name="imagen"
+        #imagen="ngModel"
+        required
+        minlength="3"
+      />
+      <div *ngIf="imagen.invalid && imagen.dirty" class="alert">
+        <div *ngIf="imagen.errors?.['required']">Campo requerido</div>
+        <div *ngIf="imagen.errors?.['minlength']">Mínimo 4 caracteres</div>
+      </div>
     </div>
+
+
+
+
 
     <button type="submit" >Guardar cambios </button>
   </form>

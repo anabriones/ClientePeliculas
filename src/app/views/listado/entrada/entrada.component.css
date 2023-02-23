@@ -6,3 +6,16 @@
 #entrada * {
   padding: 10px;
 }
+
+.foto  {
+  margin-left: 200px;
+
+}
+
+.boton{
+  margin-left: 10px;
+  margin-bottom: 0px;
+  margin-top: auto;
+  margin-right: 10px;
+float: right;
+}

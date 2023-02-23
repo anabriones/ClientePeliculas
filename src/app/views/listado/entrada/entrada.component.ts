@@ -17,17 +17,42 @@ export class EntradaComponent implements OnInit {
   @Output()
   public doEvent: EventEmitter<string>;
 
+
+
+
+  public sessionReportFilter: boolean;
+
+
+
+
+
   constructor(private entradaService: EntradaService, private router: Router) {
     this.entrada = {
       nombre: '',
-      plataforma: ''
+      plataforma: '',
+      duracion:'',
+      imagen:''
     };
     this.doEvent = new EventEmitter<string>();
+this.sessionReportFilter=false;
+
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (sessionStorage.getItem('auth_token') != null) {
+      this.sessionReportFilter =true;
+    }
+
+    }
+
+
 
   public lanzarPelicula(): void {
     this.doEvent.emit(this.entrada.nombre);
+
+
+
   }
+
+
 }

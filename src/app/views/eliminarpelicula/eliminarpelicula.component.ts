@@ -20,7 +20,9 @@ export class EliminarpeliculaComponent implements OnInit {
   ) {
     this.entrada = {
       nombre: this.rutaActiva.snapshot.params['nombre'],
-      plataforma: ''
+      plataforma: '',
+      duracion: '',
+      imagen:''
     };
   }
 
@@ -32,9 +34,8 @@ export class EliminarpeliculaComponent implements OnInit {
   public eliminarEntrada(entrada: Entrada): any {
 
     this.entradaService.eliminarEntradaS(entrada).subscribe();
-    this.router.navigate(['/listado']);
+    this.router.navigate(['/menu']);
 
-   // window.location.reload(); //recargo la página para comprobar que se ha eliminado la película
-  }
+   }
 
 }

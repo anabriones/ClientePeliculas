@@ -5,6 +5,19 @@
     #usuarioForm="ngForm"
   >
     <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input
+        type="test"
+        [(ngModel)]="usuario.name"
+        name="nombre"
+        #nombre="ngModel"
+        required
+        minlength="4"
+      />
+      <div *ngIf="nombre.invalid && nombre.dirty" class="alert">
+        <div *ngIf="nombre.errors?.['required']">Campo requerido</div>
+        <div *ngIf="nombre.errors?.['minlength']">Mínimo 4 caracteres</div>
+      </div>
       <label for="usuario">Email:</label>
       <input
         type="text"
@@ -17,7 +30,7 @@
         <div *ngIf="nombre.errors?.['required']">Campo requerido</div>
       </div>
     </div>
-    <div class="form-group">
+
       <label for="contrasegna">Contraseña:</label>
       <input
         type="password"
@@ -31,7 +44,7 @@
         <div *ngIf="contrasegna.errors?.['required']">Campo requerido</div>
         <div *ngIf="contrasegna.errors?.['minlength']">Mínimo 4 caracteres</div>
       </div>
-    </div>
+
     <button type="button" (click)="registrar(usuario.email, usuario.password)">
       Nuevo Usuario
     </button>

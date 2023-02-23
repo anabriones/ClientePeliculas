@@ -13,7 +13,8 @@ import { LoginComponent } from './views/login/login.component';
 import { ModificaEntradaComponent } from './views/modifica-entrada/modifica-entrada.component';
 import { AniadirpeliculaComponent } from './views/aniadirpelicula/aniadirpelicula.component';
 import {EliminarpeliculaComponent} from './views/eliminarpelicula/eliminarpelicula.component';
-import { RegistroComponent } from './views/registro/registro.component'
+import { RegistroComponent } from './views/registro/registro.component';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,14 @@ import { RegistroComponent } from './views/registro/registro.component'
     ModificaEntradaComponent,
     AniadirpeliculaComponent,
     EliminarpeliculaComponent,
-    RegistroComponent
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

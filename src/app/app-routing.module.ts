@@ -21,8 +21,7 @@ const  routes:  Routes  = [
   { path: 'PaginaNoEncontradaComponent', component: PaginaNoEncontradaComponent},
   { path: 'addfilm', component: AniadirpeliculaComponent},
   { path: 'eliminar/:nombre', component: EliminarpeliculaComponent},
-  { path: 'registro', component: RegistroComponent},
-
+  { path: 'registro', component: RegistroComponent}
 ];
 
 @NgModule({

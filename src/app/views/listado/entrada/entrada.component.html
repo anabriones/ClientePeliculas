@@ -1,7 +1,21 @@
 <div id="entrada" (click)="lanzarPelicula()">
-  <h4>{{ entrada.nombre }}</h4>
-  <h4>{{ entrada.plataforma }}</h4>
 
-  <button type="button" routerLink="/eliminar/{{entrada.nombre}}" >Eliminar</button>
-  <button type="button" routerLink="/modificar/{{entrada.nombre}}" >Modificar</button>
+
+  <h4>Titulo: {{ entrada.nombre }}</h4>
+  <h4> Plataforma: {{ entrada.plataforma }}</h4>
+  <h4>Duración: {{ entrada.duracion }} minutos</h4>
+
+  <button class="boton" [disabled]="!sessionReportFilter" type="button" routerLink="/eliminar/{{ entrada.nombre }}">
+    Eliminar
+  </button>
+  <button class="boton" [disabled]="!sessionReportFilter"  type="button" routerLink="/modificar/{{ entrada.nombre}}">
+    Modificar
+  </button>
+  <img class="foto"
+  src="{{entrada.imagen}}"
+  width="250"
+  height="250"
+  alt=""
+/>
+
 </div>

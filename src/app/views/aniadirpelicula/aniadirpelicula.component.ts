@@ -19,7 +19,9 @@ export class AniadirpeliculaComponent implements OnInit {
   ) {
     this.entrada = {
      nombre: '',
-     plataforma: ''
+     plataforma: '',
+     duracion:'',
+     imagen:''
     };
   }
 

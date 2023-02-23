@@ -23,7 +23,7 @@ export class RegistroComponent implements OnInit {
       name:'',
       email:'',
       password:'',
-      role:'',
+      role:'user',
       isActive:false
     }
 
@@ -38,6 +38,7 @@ export class RegistroComponent implements OnInit {
     this.authservice.registrar(email,password),
       (error: Error) => {
         alert("Error en el registro, el usuario ya existe");
+        console.log('Error al registrar el usuario'+error)
       }
 
       this.router.navigate(['/listado']);

@@ -24,6 +24,7 @@ export class ListadoComponent implements OnInit {
     this.entradaService.recuperarEntradas().subscribe(
       (entradas: Entrada[]) => {
         this.listadoEntradas = entradas;
+
       },
       (error: Error) => {
         console.log('Error: ', error);

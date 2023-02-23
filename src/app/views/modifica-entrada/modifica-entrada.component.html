@@ -1,17 +1,36 @@
-<div id="contenedor" class="form">
-  <form (ngSubmit)="submit(entrada.nombre,entrada.plataforma)" #entradaForm="ngForm">
+<div id="contenedor">
 
-    <div class="form-group">
-      <label for="contrasegna">Plataforma:</label>
-      <input type="text" [(ngModel)]="entrada.plataforma"
-        name="plataforma" #plataforma="ngModel" required minlength="3">
-      <div *ngIf="plataforma.invalid && plataforma.dirty" class="alert">
-        <div *ngIf="plataforma.errors?.['required']">Campo requerido</div>
-        <div *ngIf="plataforma.errors?.['minlength']">Mínimo 4 caracteres</div>
+  <h4>Modificando {{nombre}}</h4>
+  <form [formGroup]="formEntrada" (ngSubmit)="editarEntrada()">
+
+
+    <label>Plataforma:</label>
+    <input type="text" formControlName="plataforma" placeholder="{{entrada.plataforma}}">
+    <div *ngIf="formEntrada.get('plataforma')?.invalid && formEntrada.get('plataforma')?.dirty">
+      <div *ngIf="formEntrada.get('plataforma')?.errors?.['required']">
+       Plataforma es obligatorio
+      </div>
+      <div *ngIf="formEntrada.get('plataforma')?.errors?.['minLength']">
+        Plataforma mínimo 4 caracteres
       </div>
     </div>
 
-    <button type="submit" >Guardar cambios </button>
+    <label>Duracion:</label>
+    <input type="text" formControlName="duracion">
+    <div *ngIf="formEntrada.get('duracion')?.invalid && formEntrada.get('duracion')?.dirty">
+      <div *ngIf="formEntrada.get('duracion')?.errors?.['required']">
+        La Duracion es obligatorio
+      </div>
+    </div>
+
+    <label>Imagen:</label>
+    <input type="text" formControlName="imagen">
+    <div *ngIf="formEntrada.get('imagen')?.invalid && formEntrada.get('imagen')?.dirty">
+      <div *ngIf="formEntrada.get('imagen')?.errors?.['required']">
+       La imagen es obligatoria
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!formEntrada.valid">Editar</button>
   </form>
 </div>
-

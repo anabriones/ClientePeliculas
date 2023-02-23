@@ -1,44 +1,16 @@
-.form {
+#contenedor {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 form {
-  padding: 10px;
-  width: 50%;
-  background-color: rgb(250, 228, 189);
-  display: flex;
-  flex-direction: column;
-}
-
-form * {
-  padding: 5px;
-}
-
-.form-group {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.form-group label {
-  width: 15%;
-}
-
-.form-group input {
-  width: 85%;
-}
-
-button {
   margin-top: 20px;
-  width: 100px;
-  align-self: center;
-  background-color: rgb(70, 70, 250);
-  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
-.alert {
-  background-color: red;
-  color: white;
+mat-form-field {
   width: 100%;
-  margin: 10px;
 }

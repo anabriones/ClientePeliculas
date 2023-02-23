@@ -24,7 +24,6 @@ export class AuthService {
         sessionStorage.setItem('auth_token', resp.token);
         sessionStorage.setItem('miTokenPersonalnombre',email);
 
-
         this.tokenService.setToken(resp.token);
         sessionStorage.setItem('nombreUsuario', email);
         this.router.navigate(['/menu']);

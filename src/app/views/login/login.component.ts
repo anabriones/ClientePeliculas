@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   public submit(email: string, password: string): void {
     this.authservice.login(email, password),
       (error: Error) => {
-        alert('Error al realizar el acceso');
+        alert('Error al realizar el acceso'+ error);
       };
   }
 }
