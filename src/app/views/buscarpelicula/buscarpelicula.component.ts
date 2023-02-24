@@ -1,4 +1,10 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Entrada } from 'src/app/shared/interfaces/entradaInterface';
 import { EntradaService } from 'src/app/shared/services/entrada.service';
@@ -10,16 +16,17 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './buscarpelicula.component.html',
   styleUrls: ['./buscarpelicula.component.css']
 })
-export class BuscarpeliculaComponent {
+export class BuscarpeliculaComponent implements OnInit {
   // Atributos
-  @Input()
+@Input()
   public entrada: Entrada;
-
   public nombre: string;
 
-  constructor(private entradaService: EntradaService,
-     private router: Router,
-     private activatedRoute: ActivatedRoute,) {
+  constructor(
+    private entradaService: EntradaService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
     this.entrada = {
       nombre: '',
       plataforma: '',
@@ -32,7 +39,6 @@ export class BuscarpeliculaComponent {
 
   ngOnInit(): void {
     this.obtenerpelicula(this.nombre);
-    this.router.navigate(['/buscar/nombre']);
   }
 
   public obtenerpelicula(nombre: string): void {
@@ -41,13 +47,15 @@ export class BuscarpeliculaComponent {
         this.entrada = entrada;
       },
       error: (error: Error) => {
+        this.entrada = this.entrada;
         console.log('Error: ', error);
-        alert('Error al añadir pelicula, mire si ya existe la película');
+        alert('Error al buscar  pelicula');
+
+        this.router.navigate(['/listado']);
       },
       complete: () => {
         console.log('Petición realizada correctamente');
       }
     });
-    this.router.navigate(['/listado']);
   }
 }

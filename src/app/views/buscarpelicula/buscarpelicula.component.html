@@ -1,10 +1,7 @@
 <div id="entrada" >
-
-
   <h4>Titulo: {{ entrada.nombre }}</h4>
   <h4> Plataforma: {{ entrada.plataforma }}</h4>
   <h4>Duración: {{ entrada.duracion }} minutos</h4>
-
   <img class="foto"
   src="{{entrada.imagen}}"
   width="250"
@@ -12,4 +9,5 @@
   alt=""
 />
 
+<br><button type="button" routerLink="/menu">Volver</button>
 </div>

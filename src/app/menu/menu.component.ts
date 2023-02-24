@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from '../shared/services/token.service';
 @Component({
@@ -29,6 +29,8 @@ export class MenuComponent implements OnInit {
 
     this.busqueda='';
     this.router.navigate(['/listado']);
+
+
   }
 
   public logout(): void {

@@ -53,12 +53,23 @@ export class ModificapeliculaComponent implements OnInit {
   }
 
   private recuperarPelicula(nombre: string): void {
-    this.entradaService.recuperarEntrada(nombre).subscribe((data: any) => {
-      this.entrada = data[0];
+    this.entradaService.recuperarEntrada(nombre).subscribe({
+   next:   (entrada:Entrada) => {
+      this.entrada = entrada;
       this.formEntrada.get('plataforma')?.setValue(this.entrada.plataforma);
       this.formEntrada.get('duracion')?.setValue(this.entrada.duracion);
       this.formEntrada.get('imagen')?.setValue(this.entrada.imagen);
-    });
+    },
+
+  error: (error: Error) => {
+    console.log('Error: ', error);
+    alert('Error al modificar  pelicula');
+    this.router.navigate(['/listado']);
+  },
+  complete: () => {
+    console.log('Petición realizada correctamente');
+  }
+});
   }
 
   public editarEntrada(): void {
