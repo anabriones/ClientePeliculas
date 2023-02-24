@@ -32,8 +32,16 @@ export class EliminarpeliculaComponent implements OnInit {
 
 
   public eliminarEntrada(entrada: Entrada): any {
-
-    this.entradaService.eliminarEntradaS(entrada).subscribe();
+    this.entradaService.eliminarEntradaS(entrada).subscribe({
+    next:  () => {},
+   error:   (error: Error) => {
+        console.log('Error: ', error);
+      },
+    complete:  () => {
+        console.log('Petición realizada correctamente');
+      }
+    }
+    );
     this.router.navigate(['/menu']);
 
    }

@@ -1,6 +1,5 @@
 import { AuthService } from './../../shared/services/auth.service';
 import { Usuario } from 'src/app/shared/classes/usuario';
-import { tokenInterface } from './../../shared/interfaces/tokenInterface';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 

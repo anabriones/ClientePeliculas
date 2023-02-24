@@ -5,7 +5,7 @@
 
 
     <label>Plataforma:</label>
-    <input type="text" formControlName="plataforma" placeholder="{{entrada.plataforma}}">
+    <input type="text" formControlName="plataforma" >
     <div *ngIf="formEntrada.get('plataforma')?.invalid && formEntrada.get('plataforma')?.dirty">
       <div *ngIf="formEntrada.get('plataforma')?.errors?.['required']">
        Plataforma es obligatorio

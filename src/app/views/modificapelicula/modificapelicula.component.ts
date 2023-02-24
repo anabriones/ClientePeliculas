@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { Entrada } from 'src/app/shared/interfaces/entradaInterface';
 import { EntradaService } from 'src/app/shared/services/entrada.service';
 import { Router } from '@angular/router';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -10,12 +10,15 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 
+
 @Component({
-  selector: 'app-modifica-entrada',
-  templateUrl: './modifica-entrada.component.html',
-  styleUrls: ['./modifica-entrada.component.css']
+  selector: 'app-modificapelicula',
+  templateUrl: './modificapelicula.component.html',
+  styleUrls: ['./modificapelicula.component.css']
 })
-export class ModificaEntradaComponent implements OnInit {
+
+export class ModificapeliculaComponent implements OnInit {
+
   // Atributos
   public nombre: string;
   public entrada: Entrada;
@@ -60,18 +63,18 @@ export class ModificaEntradaComponent implements OnInit {
   }
 
   public editarEntrada(): void {
-    this.entradaService.modificarEntradaS(this.formEntrada.value).subscribe(
-      data => {
+    this.entradaService.modificarEntradaS(this.formEntrada.value).subscribe({
+    next:  () => {
         console.log('Entrada editada: ');
 
-        this.router.navigate(['/menu']);
+        this.router.navigate(['/listado']);
       },
-      error => {
+   error:   error => {
         console.error('Error al editar la entrada: ', error);
       }
+    }
     );
   }
-
   public submit(
     nombre: string,
     plataforma: string,
@@ -82,11 +85,11 @@ export class ModificaEntradaComponent implements OnInit {
     this.entrada.plataforma = plataforma;
     this.entrada.duracion = duracion;
     this.entrada.imagen = imagen;
-    this.entradaService.modificarEntradaS(this.entrada).subscribe();
-    this.router.navigate(['/menu']);
-
+    this.entradaService.modificarEntradaS(this.entrada).subscribe(
     (error: Error) => {
       console.error('Error al realizar el acceso');
-    };
+    });
+
   }
+
 }

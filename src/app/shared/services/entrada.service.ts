@@ -10,12 +10,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class EntradaService {
-
-  constructor(private httpClient: HttpClient) {
-
-    }
-
-
+  constructor(private httpClient: HttpClient) {}
 
   public eliminarEntradaS(entrada: Entrada): Observable<any> {
     const headers = new HttpHeaders({
@@ -23,10 +18,10 @@ export class EntradaService {
     });
     headers.append('Content-Type', 'application/json');
     return this.httpClient.delete<any>(
-      `http://localhost:8000/films/${entrada.nombre}`, {headers}
+      `http://localhost:8000/films/${entrada.nombre}`,
+      { headers }
     );
   }
-
 
   public addPelicula(entrada: Entrada): Observable<any> {
     const headers = new HttpHeaders({
@@ -34,7 +29,7 @@ export class EntradaService {
     });
     headers.append('Content-Type', 'application/json');
 
-    return this.httpClient.post<any>(`http://localhost:8000/films`,entrada,{
+    return this.httpClient.post<any>(`http://localhost:8000/films`, entrada, {
       headers
     });
   }
@@ -45,30 +40,20 @@ export class EntradaService {
     });
     headers.append('Content-Type', 'application/json');
 
-
-
     return this.httpClient.put<any>(
       `http://localhost:8000/films/${entrada.nombre}`,
       entrada,
       { headers }
     );
-
   }
-
-
 
   public recuperarEntradas(): Observable<Entrada[]> {
     return this.httpClient.get<Entrada[]>('http://localhost:8000/films');
   }
 
-  public recuperarEntrada(nombre:string): Observable<Entrada> {
-
-    return this.httpClient.get<Entrada>(`http://localhost:8000/films/${nombre}`);
-
+  public recuperarEntrada(nombre: string): Observable<Entrada> {
+    return this.httpClient.get<Entrada>(
+      `http://localhost:8000/films/${nombre}`
+    );
   }
-
-
-
 }
-
-

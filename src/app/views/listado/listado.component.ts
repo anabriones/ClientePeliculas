@@ -20,19 +20,23 @@ export class ListadoComponent implements OnInit {
   }
 
 
+
+
   public listarEntradas(): void {
-    this.entradaService.recuperarEntradas().subscribe(
-      (entradas: Entrada[]) => {
+    this.entradaService.recuperarEntradas().subscribe({
+     next: (entradas: Entrada[]) => {
         this.listadoEntradas = entradas;
 
       },
-      (error: Error) => {
+   error: (error: Error) => {
         console.log('Error: ', error);
       },
-      () => {
+   complete:   () => {
         console.log('Petición realizada correctamente');
       }
+    }
     );
+
   }
 
   public mostrarPelicula(nombre: string): void {

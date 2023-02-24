@@ -41,7 +41,7 @@ export class RegistroComponent implements OnInit {
         console.log('Error al registrar el usuario'+error)
       }
 
-      this.router.navigate(['/listado']);
+      this.router.navigate(['/menu']);
 
   }
 }

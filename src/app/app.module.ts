@@ -8,13 +8,13 @@ import { ListadoComponent } from './views/listado/listado.component';
 import { EntradaComponent } from './views/listado/entrada/entrada.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PaginaNoEncontradaComponent } from './views/pagina-no-encontrada/pagina-no-encontrada.component';
-import { AcercaDeNosotrosComponent } from './views/acerca-de-nosotros/acerca-de-nosotros.component';
 import { LoginComponent } from './views/login/login.component';
-import { ModificaEntradaComponent } from './views/modifica-entrada/modifica-entrada.component';
 import { AniadirpeliculaComponent } from './views/aniadirpelicula/aniadirpelicula.component';
-import {EliminarpeliculaComponent} from './views/eliminarpelicula/eliminarpelicula.component';
+import { EliminarpeliculaComponent } from './views/eliminarpelicula/eliminarpelicula.component';
+import { ModificapeliculaComponent } from './views/modificapelicula/modificapelicula.component';
 import { RegistroComponent } from './views/registro/registro.component';
-import {  ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -23,12 +23,11 @@ import {  ReactiveFormsModule } from '@angular/forms';
     ListadoComponent,
     EntradaComponent,
     PaginaNoEncontradaComponent,
-    AcercaDeNosotrosComponent,
     LoginComponent,
-    ModificaEntradaComponent,
     AniadirpeliculaComponent,
     EliminarpeliculaComponent,
     RegistroComponent,
+    ModificapeliculaComponent
   ],
   imports: [
     BrowserModule,
@@ -40,4 +39,4 @@ import {  ReactiveFormsModule } from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
