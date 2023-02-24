@@ -32,14 +32,16 @@ export class AniadirpeliculaComponent implements OnInit {
   public submit(nombre: string, plataforma: string): void {
     this.entrada.nombre = nombre;
     this.entrada.plataforma = plataforma;
-    this.entradaService.addPelicula(this.entrada).subscribe();
-
-
-
-    (error: Error) => {
-      console.error('Error al realizar el acceso');
-    };
-
+    this.entradaService.addPelicula(this.entrada).subscribe({
+      next:  () => {},
+     error:   (error: Error) => {
+          console.log('Error: ', error);
+          alert('Error al añadir pelicula, mire si ya existe la película')
+        },
+      complete:  () => {
+          console.log('Petición realizada correctamente');
+        }
+      });
     this.router.navigate(['/listado']);
   }
 }

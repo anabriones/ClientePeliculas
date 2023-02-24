@@ -1,3 +1,4 @@
+import { BuscarpeliculaComponent } from './views/buscarpelicula/buscarpelicula.component';
 import { ModificapeliculaComponent } from './views/modificapelicula/modificapelicula.component';
 import { RegistroComponent } from './views/registro/registro.component';
 import { MenuComponent } from './menu/menu.component';
@@ -19,7 +20,8 @@ const  routes:  Routes  = [
   { path: 'PaginaNoEncontradaComponent', component: PaginaNoEncontradaComponent},
   { path: 'addfilm', component: AniadirpeliculaComponent},
   { path: 'eliminar/:nombre', component: EliminarpeliculaComponent},
-  { path: 'registro', component: RegistroComponent}
+  { path: 'registro', component: RegistroComponent},
+  { path: 'buscar/:nombre', component: BuscarpeliculaComponent}
 ];
 
 @NgModule({

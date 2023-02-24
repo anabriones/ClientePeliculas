@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Entrada } from 'src/app/shared/interfaces/entradaInterface';
 import { EntradaService } from 'src/app/shared/services/entrada.service';
 import { Router } from '@angular/router';
@@ -6,8 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
-  Validators,
-  ReactiveFormsModule
+  Validators
 } from '@angular/forms';
 
 

@@ -9,6 +9,7 @@ import { TokenService } from '../shared/services/token.service';
 export class MenuComponent implements OnInit {
   public miToken: string | null;
   public nombreUsuario: string | null;
+  public busqueda : string | undefined;
 
   constructor(private router: Router, private tokenService: TokenService) {
     this.miToken = 'null';
@@ -25,6 +26,8 @@ export class MenuComponent implements OnInit {
         this.nombreUsuario = sessionStorage.getItem('miTokenPersonalnombre');
       }
     });
+
+    this.busqueda='';
     this.router.navigate(['/listado']);
   }
 

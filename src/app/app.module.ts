@@ -14,6 +14,7 @@ import { EliminarpeliculaComponent } from './views/eliminarpelicula/eliminarpeli
 import { ModificapeliculaComponent } from './views/modificapelicula/modificapelicula.component';
 import { RegistroComponent } from './views/registro/registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BuscarpeliculaComponent } from './views/buscarpelicula/buscarpelicula.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AniadirpeliculaComponent,
     EliminarpeliculaComponent,
     RegistroComponent,
-    ModificapeliculaComponent
+    ModificapeliculaComponent,
+    BuscarpeliculaComponent
   ],
   imports: [
     BrowserModule,
