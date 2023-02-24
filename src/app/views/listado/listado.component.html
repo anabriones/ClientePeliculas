@@ -1,5 +1,9 @@
 <div id="contenedor">
   <h3>Listado de películas</h3>
+  <input  type="search"  [(ngModel)]="busqueda" placeholder="Busque una pelicula">
+
+  <input    type="submit" value="Buscar" routerLink="/buscar/{{busqueda}}">
+
   <app-entrada *ngFor="let entrada of listadoEntradas" [entrada]="entrada"
   (doEvent)="mostrarPelicula($event)"></app-entrada>
 

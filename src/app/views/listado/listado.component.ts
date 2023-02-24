@@ -9,9 +9,11 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 })
 export class ListadoComponent implements OnInit {
   public listadoEntradas: Entrada[];
+  public busqueda : string | null;
 
   constructor(private entradaService: EntradaService) {
     this.listadoEntradas = [];
+    this.busqueda='';
   }
 
   ngOnInit(): void {

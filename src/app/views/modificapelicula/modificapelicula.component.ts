@@ -64,7 +64,7 @@ export class ModificapeliculaComponent implements OnInit {
   error: (error: Error) => {
     console.log('Error: ', error);
     alert('Error al modificar  pelicula');
-    this.router.navigate(['/listado']);
+    this.router.navigate(['/menu']);
   },
   complete: () => {
     console.log('Petición realizada correctamente');

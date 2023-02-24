@@ -49,9 +49,9 @@ export class BuscarpeliculaComponent implements OnInit {
       error: (error: Error) => {
         this.entrada = this.entrada;
         console.log('Error: ', error);
-        alert('Error al buscar  pelicula');
 
-        this.router.navigate(['/listado']);
+
+        this.router.navigate(['/PaginaNoEncontradaComponent']);
       },
       complete: () => {
         console.log('Petición realizada correctamente');
