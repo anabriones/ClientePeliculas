@@ -1,0 +1,14 @@
+#entrada {
+  background-color: aqua;
+  border-radius: 10px;
+}
+
+#entrada * {
+  padding: 10px;
+}
+
+.foto  {
+  margin-left: 200px;
+
+}
+

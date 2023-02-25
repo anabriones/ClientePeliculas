@@ -52,9 +52,7 @@ export class EntradaService {
   }
 
   public recuperarEntrada(nombre: string): Observable<Entrada> {
-    const headers = new HttpHeaders({
-      Authorization: 'JWT ' + sessionStorage.getItem('auth_token')
-    });
+    const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.httpClient.get<Entrada>(
       `http://localhost:8000/films/${nombre}`, {headers}

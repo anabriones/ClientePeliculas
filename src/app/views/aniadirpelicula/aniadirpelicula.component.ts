@@ -42,7 +42,7 @@ export class AniadirpeliculaComponent implements OnInit {
           console.log('Petición realizada correctamente');
         }
       });
-    this.router.navigate(['/listado']);
+    this.router.navigate(['/menu']);
   }
 }
 
