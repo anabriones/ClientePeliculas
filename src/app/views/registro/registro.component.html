@@ -1,7 +1,7 @@
 
 <div id="contenedor" class="form">
   <form
-    (ngSubmit)="registrar(usuario.email, usuario.password)"
+    (ngSubmit)="registrar(usuario.name,usuario.email, usuario.password)"
     #usuarioForm="ngForm"
   >
     <div class="form-group">
@@ -18,16 +18,18 @@
         <div *ngIf="nombre.errors?.['required']">Campo requerido</div>
         <div *ngIf="nombre.errors?.['minlength']">Mínimo 4 caracteres</div>
       </div>
-      <label for="usuario">Email:</label>
+
+
+      <label for="email">Email:</label>
       <input
         type="text"
         [(ngModel)]="usuario.email"
-        name="nombre"
-        #nombre="ngModel"
+        name="email"
+        #email="ngModel"
         required
       />
-      <div *ngIf="nombre.invalid && nombre.dirty" class="alert">
-        <div *ngIf="nombre.errors?.['required']">Campo requerido</div>
+      <div *ngIf="email.invalid && email.dirty" class="alert">
+        <div *ngIf="email.errors?.['required']">Campo requerido</div>
       </div>
     </div>
 
@@ -45,7 +47,7 @@
         <div *ngIf="contrasegna.errors?.['minlength']">Mínimo 4 caracteres</div>
       </div>
 
-    <button type="button" (click)="registrar(usuario.email, usuario.password)">
+    <button type="submit" >
       Nuevo Usuario
     </button>
   </form>

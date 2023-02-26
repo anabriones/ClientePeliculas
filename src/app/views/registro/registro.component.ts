@@ -10,38 +10,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-
-
   public usuario: Usuario;
 
-  constructor(
-
-    private router: Router,
-    private  authservice:AuthService
-){
-      this.usuario={
-      name:'',
-      email:'',
-      password:'',
-      role:'user',
-      isActive:false
-    }
-
+  constructor(private router: Router, private authservice: AuthService) {
+    this.usuario = {
+      name: '',
+      email: '',
+      password: '',
+      role: 'user',
+      isActive: false
+    };
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
-
-
-  public registrar(email:string, password:string): void {
-    this.authservice.registrar(email,password),
-      (error: Error) => {
-        alert("Error en el registro, el usuario ya existe");
-        console.log('Error al registrar el usuario'+error)
+  public registrar(name: string, email: string, password: string): void {
+    this.usuario.name = name;
+    this.usuario.email = email;
+    this.usuario.password = password;
+    this.authservice.registrar(this.usuario).subscribe({
+      next: () => {},
+      error: (error: Error) => {
+        console.log('Error: ', error);
+        alert('Error al registrar el usuario, ya existe');
+        this.router.navigate(['/registro']);
+      },
+      complete: () => {
+        console.log('Petición realizada correctamente');
+        this.router.navigate(['/menu']);
       }
-
-      this.router.navigate(['/menu']);
-
+    });
   }
 }

@@ -77,7 +77,7 @@ export class ModificapeliculaComponent implements OnInit {
     next:  () => {
         console.log('Entrada editada: ');
 
-        this.router.navigate(['/listado']);
+        this.router.navigate(['/menu']);
       },
    error:   error => {
         console.error('Error al editar la entrada: ', error);
@@ -85,21 +85,6 @@ export class ModificapeliculaComponent implements OnInit {
     }
     );
   }
-  public submit(
-    nombre: string,
-    plataforma: string,
-    duracion: string,
-    imagen: string
-  ): void {
-    this.entrada.nombre = nombre;
-    this.entrada.plataforma = plataforma;
-    this.entrada.duracion = duracion;
-    this.entrada.imagen = imagen;
-    this.entradaService.modificarEntradaS(this.entrada).subscribe(
-    (error: Error) => {
-      console.error('Error al realizar el acceso');
-    });
 
-  }
 
 }
