@@ -69,12 +69,19 @@ Para que las rutas en la cabecera el Atorizhation se ha creado una cebera previa
 
 ## Componentes
 
-Se ha creado un componente para cada funcionalidad del cliente, los cuales son:
+Se ha creado un componente para cada funcionalidad ,los cuales son:
 -Añadir Pelicula
 -Buscar pelicula
 -Eliminar pelicula
--Listado
--Login
 -Modificar Pelicula
+-Listar peliculas
+-Login
 -Pagina no encontrada
 -Registro
+-Modificar Ususario
+
+## Material Design 
+
+Como se ha hecho al final, solo se ha implementado en la modificación de los usuarios. 
+
+Por lo que es necesario ejecutar el comando `ng add @angular/material`
