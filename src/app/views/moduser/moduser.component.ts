@@ -60,7 +60,7 @@ export class ModuserComponent {
       )
     }
 
-    public editarEntrada(): void {
+    public editarUsuario(): void {
 
       this.usuarioService.modificarusuario(this.formEntrada.value).subscribe(
         (data) => {

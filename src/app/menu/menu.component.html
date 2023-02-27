@@ -14,7 +14,7 @@
   </li>
 
   <li *ngIf="miToken != 'null'" class="acceso" class="acceso">
-    <span>Bienvenido : {{ nombreUsuario }}</span></li>
+    <span>Bienvenido : {{ nombreUsuario }} </span></li>
     <button
       *ngIf="miToken != 'null'"
       type="submit"
@@ -22,6 +22,13 @@
       routerLink="/menu">
       Cerrar Sesion
     </button>
+
+    <button
+    *ngIf="miToken != 'null'"
+    type="button"
+    routerLink="/modificarusuario/{{ nombreUsuario }}">
+    Modificar Usuario
+  </button>
 
 
 </ul>
