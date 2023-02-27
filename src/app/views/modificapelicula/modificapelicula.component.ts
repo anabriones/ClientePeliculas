@@ -43,7 +43,7 @@ export class ModificapeliculaComponent implements OnInit {
       imagen: ['', Validators.required]
     });
 
-    this.activatedRoute.params.subscribe(paramsUrl => {
+    this.activatedRoute.params.subscribe((paramsUrl: { [x: string]: string; }) => {
       this.nombre = paramsUrl['nombre'];
     });
   }

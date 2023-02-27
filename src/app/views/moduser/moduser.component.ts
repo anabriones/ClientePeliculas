@@ -15,7 +15,7 @@ export class ModuserComponent {
     // Atributos
     public nombre: string;
     public usuario: usuarioInterface;
-    public formEntrada: FormGroup
+    public formUSer: FormGroup
 
     constructor(private activatedRoute: ActivatedRoute,
        private usuarioService: AuthService,
@@ -31,13 +31,13 @@ export class ModuserComponent {
         role: '',
         isActive: false,
       };
-      this.formEntrada = this.formBuilder.group({
+      this.formUSer = this.formBuilder.group({
         name: ['', Validators.required],
         email: ['', [Validators.required, Validators.minLength(10)]],
         password: ['', Validators.required]
       });
 
-      this.activatedRoute.params.subscribe( paramsUrl => {
+      this.activatedRoute.params.subscribe( (paramsUrl: { [x: string]: string; })  => {
         this.nombre = paramsUrl['nombre'];
       });
     }
@@ -53,16 +53,16 @@ export class ModuserComponent {
         (data: usuarioInterface) => {
           this.usuario = data;
 
-          this.formEntrada.get('nombre')?.setValue(this.usuario.name);
-          this.formEntrada.get('email')?.setValue(this.usuario.email);
-          this.formEntrada.get('password')?.setValue(this.usuario.password);
+          this.formUSer.get('nombre')?.setValue(this.usuario.name);
+          this.formUSer.get('email')?.setValue(this.usuario.email);
+          this.formUSer.get('password')?.setValue(this.usuario.password);
         }
       )
     }
 
     public editarUsuario(): void {
 
-      this.usuarioService.modificarusuario(this.formEntrada.value).subscribe(
+      this.usuarioService.modificarusuario(this.formUSer.value).subscribe(
         (data) => {
           console.log("Usuario editado: ", data);
 
