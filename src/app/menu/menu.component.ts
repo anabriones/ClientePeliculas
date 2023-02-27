@@ -9,18 +9,29 @@ import { TokenService } from '../shared/services/token.service';
 export class MenuComponent implements OnInit {
   public miToken: string | null;
   public nombreUsuario: string | null;
-  
 
-  constructor(private router: Router, private tokenService: TokenService) {
-    this.miToken = 'null';
+
+  constructor(private router: Router,
+   private tokenService: TokenService) {
+    if (sessionStorage.getItem('auth_token') != null) {
+      this.miToken = 'token';
+
+    }
+    else{
+      this.miToken='null';
+    }
     this.nombreUsuario = '';
-    
+
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void   {
     this.tokenService.token$.subscribe((data: string) => {
-      if (sessionStorage.getItem('auth_token') != null) {
-        this.miToken = sessionStorage.getItem('auth_token');
+
+
+
+     if (sessionStorage.getItem('auth_token') != null) {
+        this.miToken = 'token';
+
       }
 
       if (sessionStorage.getItem('miTokenPersonalnombre') != null) {
@@ -28,8 +39,8 @@ export class MenuComponent implements OnInit {
       }
     });
 
+   this.router.navigate(['/listado']);
 
-    this.router.navigate(['/listado']);
 
 
   }

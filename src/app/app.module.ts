@@ -15,6 +15,7 @@ import { ModificapeliculaComponent } from './views/modificapelicula/modificapeli
 import { RegistroComponent } from './views/registro/registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BuscarpeliculaComponent } from './views/buscarpelicula/buscarpelicula.component';
+import { UsuarioComponent } from './views/usuario/usuario.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { BuscarpeliculaComponent } from './views/buscarpelicula/buscarpelicula.c
     EliminarpeliculaComponent,
     RegistroComponent,
     ModificapeliculaComponent,
-    BuscarpeliculaComponent
+    BuscarpeliculaComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
