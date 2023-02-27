@@ -13,9 +13,13 @@
     <span>Registro</span>
   </li>
 
-  <li *ngIf="miToken != 'null'" class="acceso" class="acceso" >
-    <span>Bienvenido: </span></li>
 
+
+  <li> <button mat-raised-button color="warn"   *ngIf="miToken != 'null'"
+    type="button"
+    (click)="logout()"
+      routerLink="/menu">
+      <mat-icon matSuffix>logout</mat-icon></button></li>
 
    <li><button mat-raised-button color="primary"   *ngIf="miToken != 'null'"
     type="button"
@@ -25,11 +29,7 @@
 
 
 
-   <li> <button mat-raised-button color="primary"   *ngIf="miToken != 'null'"
-    type="button"
-    (click)="logout()"
-      routerLink="/menu">
-      <mat-icon matSuffix>logout</mat-icon></button></li>
+
 
 
 
