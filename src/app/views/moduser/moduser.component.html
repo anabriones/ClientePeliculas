@@ -1,0 +1,45 @@
+<div id="contenedor">
+  <h2>Editar <strong>Usuario</strong></h2>
+  <form [formGroup]="formUSer" (ngSubmit)="editarUsuario()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre:</mat-label>
+      <input matInput type="text" formControlName="name" />
+      <mat-icon matSuffix>face</mat-icon>
+      <div *ngIf="formUSer.get('name')?.invalid && formUSer.get('name')?.dirty">
+        <mat-error *ngIf="formUSer.get('name')?.errors?.['required']">
+          El nombre es <strong>obligatorio</strong>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email       (No se puede moficar)</mat-label>
+      <input matInput type="text" formControlName="email" readonly="true"/>
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password:</mat-label>
+      <input matInput type="text" formControlName="password" />
+      <mat-icon matSuffix>key</mat-icon>
+      <div
+        *ngIf="
+          formUSer.get('password')?.invalid && formUSer.get('password')?.dirty
+        "
+      >
+        <mat-error *ngIf="formUSer.get('password')?.errors?.['required']">
+          La contraseña es <strong>obligatorio</strong>
+        </mat-error>
+      </div>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!formUSer.valid"
+    >
+      Editar
+    </button>
+  </form>
+</div>

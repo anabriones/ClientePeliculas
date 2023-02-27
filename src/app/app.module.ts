@@ -1,3 +1,4 @@
+import { ModuserComponent } from './views/moduser/moduser.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,11 @@ import { ModificapeliculaComponent } from './views/modificapelicula/modificapeli
 import { RegistroComponent } from './views/registro/registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BuscarpeliculaComponent } from './views/buscarpelicula/buscarpelicula.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+
+import { MaterialModule } from 'src/app/material-modules/material.module';
 
 @NgModule({
   declarations: [
@@ -29,14 +34,17 @@ import { BuscarpeliculaComponent } from './views/buscarpelicula/buscarpelicula.c
     EliminarpeliculaComponent,
     RegistroComponent,
     ModificapeliculaComponent,
-    BuscarpeliculaComponent
+    BuscarpeliculaComponent,
+    ModuserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

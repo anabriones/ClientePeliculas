@@ -13,22 +13,26 @@
     <span>Registro</span>
   </li>
 
-  <li *ngIf="miToken != 'null'" class="acceso" class="acceso">
-    <span>Bienvenido : {{ nombreUsuario }} </span></li>
-    <button
-      *ngIf="miToken != 'null'"
-      type="submit"
-      (click)="logout()"
-      routerLink="/menu">
-      Cerrar Sesion
-    </button>
+  <li *ngIf="miToken != 'null'" class="acceso" class="acceso" >
+    <span>Bienvenido: </span></li>
 
-    <button
-    *ngIf="miToken != 'null'"
+
+   <li><button mat-raised-button color="primary"   *ngIf="miToken != 'null'"
     type="button"
     routerLink="/modificarusuario/{{ nombreUsuario }}">
-    Modificar Usuario
-  </button>
+    {{nombreUsuario}}</button></li>
+
+
+
+
+   <li> <button mat-raised-button color="primary"   *ngIf="miToken != 'null'"
+    type="button"
+    (click)="logout()"
+      routerLink="/menu">
+      <mat-icon matSuffix>logout</mat-icon></button></li>
+
+
+
 
 
 </ul>

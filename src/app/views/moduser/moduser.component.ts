@@ -11,67 +11,72 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./moduser.component.css']
 })
 export class ModuserComponent {
+  // Atributos
+  public email: string;
+  public usuario: usuarioInterface;
+  public formUSer: FormGroup;
 
-    // Atributos
-    public nombre: string;
-    public usuario: usuarioInterface;
-    public formUSer: FormGroup
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private usuarioService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    this.email = this.activatedRoute.snapshot.params['nombre'];
 
-    constructor(private activatedRoute: ActivatedRoute,
-       private usuarioService: AuthService,
-      private formBuilder: FormBuilder,
-      private router: Router) {
+    this.usuario = {
+      name: '',
+      email: this.activatedRoute.snapshot.params['nombre'],
+      password: '',
+      role: '',
+      isActive: false
+    };
+    this.formUSer = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', []],
+      password: ['', Validators.required]
+    });
 
-
-        this.nombre=''
-      this.usuario = {
-        name: this.activatedRoute.snapshot.params['nombre'],
-        email: '',
-        password: '',
-        role: '',
-        isActive: false,
-      };
-      this.formUSer = this.formBuilder.group({
-        name: ['', Validators.required],
-        email: ['', [Validators.required, Validators.minLength(10)]],
-        password: ['', Validators.required]
-      });
-
-      this.activatedRoute.params.subscribe( (paramsUrl: { [x: string]: string; })  => {
-        this.nombre = paramsUrl['nombre'];
-      });
-    }
-
-    ngOnInit(): void {
-
-      this.obtenerusuario();
-    }
-
-    private obtenerusuario(): void {
-
-      this.usuarioService.obtenerUsuario(this.nombre).subscribe(
-        (data: usuarioInterface) => {
-          this.usuario = data;
-
-          this.formUSer.get('nombre')?.setValue(this.usuario.name);
-          this.formUSer.get('email')?.setValue(this.usuario.email);
-          this.formUSer.get('password')?.setValue(this.usuario.password);
-        }
-      )
-    }
-
-    public editarUsuario(): void {
-
-      this.usuarioService.modificarusuario(this.formUSer.value).subscribe(
-        (data) => {
-          console.log("Usuario editado: ", data);
-
-          this.router.navigate(['/Menu']);
-        },
-        (error) => {
-          console.error("Error al editar el usuario: ", error);
-        }
-      )
-    }
-
+    this.activatedRoute.params.subscribe(
+      (paramsUrl: { [x: string]: string }) => {
+        this.email = paramsUrl['nombre'];
+      }
+    );
   }
+
+  ngOnInit(): void {
+      this.obtenerusuario();
+  }
+
+  private obtenerusuario(): void {
+    this.usuarioService.obtenerUsuario(this.email).subscribe({
+      next: (data: usuarioInterface) => {
+        this.usuario = data;
+        this.formUSer.get('name')?.setValue(this.usuario.name);
+        this.formUSer.get('email')?.setValue(this.usuario.email);
+        this.formUSer.get('password')?.setValue(this.usuario.password);
+      },
+      error: (error: Error) => {
+        console.log('Error: ', error);
+        alert('Error al obtener el usuario');
+
+      },
+      complete: () => {
+        console.log('Petición realizada correctamente');
+      }
+    });
+  }
+
+  public editarUsuario(): void {
+    this.usuarioService.modificarusuario(this.formUSer.value).subscribe(
+      data => {
+        console.log('Usuario editado: ', data);
+
+        this.router.navigate(['/menu']);
+      },
+      error => {
+        console.error('Error al editar el usuario: ', error);
+      }
+    );
+  }
+}

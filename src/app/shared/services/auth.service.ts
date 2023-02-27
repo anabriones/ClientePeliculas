@@ -32,8 +32,12 @@ export class AuthService {
   }
 
   public obtenerUsuario(email: string): Observable<usuarioInterface> {
+    const headers = new HttpHeaders({
+      Authorization: 'JWT ' + sessionStorage.getItem('auth_token')
+    });
+    headers.append('Content-Type', 'application/json');
     return this.http.get<usuarioInterface>(
-      `http://localhost:8000/profile/${email}`
+      `http://localhost:8000/profile/${email}`, {headers}
     );
   }
 
