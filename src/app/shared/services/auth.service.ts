@@ -36,4 +36,18 @@ export class AuthService {
       `http://localhost:8000/profile/${email}`
     );
   }
+
+  public modificarusuario(usuario: usuarioInterface): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: 'JWT ' + sessionStorage.getItem('auth_token')
+    });
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.put<any>(
+      `http://localhost:8000/profile/${usuario.email}`,
+      usuario,
+      { headers }
+    );
+  }
+
 }
